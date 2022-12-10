@@ -19,7 +19,7 @@ if (args.help || args._.length < 1) {
 }
 
 try {
-  // TODO: Stuff here
+  log.info(args._[0]);
 } catch (error) {
   log.error(error.message);
   Deno.exit(1);
