@@ -14,7 +14,7 @@ A template project to quickly start building a Rust CLI tool.
 - [x] Includes a `stampver` version file
 - [x] Includes UNLICENSE file
 - [x] Adds `coverage.json` and badge
-- [x] README with [Crates.io]() and [Docs.rs]() badges
+- [x] README with [crates.io](https://crates.io/) and [docs.rs](https://docs.rs/) badges
 - [x] Includes a `scratch` directory
 - [x] Includes an `.vscode` directory
 - [x] Includes `.gitignore`
@@ -23,6 +23,6 @@ A template project to quickly start building a Rust CLI tool.
 - [x] `rust-toolchain.toml` set to `stable`
 - [ ] All names changed by the customizer.ts
 - [ ] Creates a `.vscode/launch.json` file for debugging
-- [ ] Includes [Criterion]() for benchmarking
+- [ ] Includes [Criterion](https://crates.io/crates/criterion) for benchmarking
 - [ ] Checks that `cargo-criterion` is installed
 - [ ] Includes basic unit tests
