@@ -45,3 +45,31 @@ impl<'a> RustCliQuickStartTool<'a> {
         Ok(())
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn basic_test() {
+        struct TestLogger;
+
+        impl TestLogger {
+            fn new() -> TestLogger {
+                TestLogger {}
+            }
+        }
+
+        impl RustCliQuickStartLog for TestLogger {
+            fn output(self: &Self, _args: Arguments) {}
+            fn warning(self: &Self, _args: Arguments) {}
+            fn error(self: &Self, _args: Arguments) {}
+        }
+
+        let logger = TestLogger::new();
+        let mut tool = RustCliQuickStartTool::new(&logger);
+        let args: Vec<std::ffi::OsString> = vec!["".into(), "--help".into()];
+
+        tool.run(args).unwrap();
+    }
+}
