@@ -34,6 +34,7 @@ function customizeProject(projectName: string) {
   );
   const libFile = new File("src/lib.rs");
   const cargoTomlFile = new File("Cargo.toml");
+  const launchFile = new File(".vscode/launch.json");
 
   binFile.write(
     binFile
@@ -50,6 +51,12 @@ function customizeProject(projectName: string) {
 
   cargoTomlFile.write(
     cargoTomlFile
+      .text()
+      .replaceAll(RegExp("rust_cli_quickstart", "gm"), snakeCase(projectName))
+  );
+
+  launchFile.write(
+    launchFile
       .text()
       .replaceAll(RegExp("rust_cli_quickstart", "gm"), snakeCase(projectName))
   );
