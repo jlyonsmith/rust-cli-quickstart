@@ -33,6 +33,7 @@ function customizeProject(projectName: string) {
     snakeCase(projectName) + ".rs"
   );
   const libFile = new File("src/lib.rs");
+  const benchFile = new File("benches/benchmarks.rs");
   const cargoTomlFile = new File("Cargo.toml");
   const launchFile = new File(".vscode/launch.json");
 
@@ -46,6 +47,13 @@ function customizeProject(projectName: string) {
   libFile.write(
     libFile
       .text()
+      .replaceAll(RegExp("RustCliQuickStart", "gm"), pascalCase(projectName))
+  );
+
+  benchFile.write(
+    benchFile
+      .text()
+      .replaceAll(RegExp("rust_cli_quickstart", "gm"), snakeCase(projectName))
       .replaceAll(RegExp("RustCliQuickStart", "gm"), pascalCase(projectName))
   );
 
